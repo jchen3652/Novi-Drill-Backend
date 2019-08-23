@@ -21,10 +21,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +31,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -105,19 +102,25 @@ public class Main {
 
 		File file = null;
 
-		try (InputStream in = URI.create("https://rocky-dawn-70703.herokuapp.com/Novi2019M2Coords.pdf").toURL()
-				.openStream()) {
-			Files.copy(in, Paths.get("test"));
+		ClassLoader cl = this.getClass().getClassLoader();
+		InputStream inputStream = cl.getResourceAsStream("src/main/resources/Novi2019M2Coords.pdf");
 
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-//			 e.printStackTrace();
-		}
- 
-		file = Paths.get("test").toFile();
+		//
+		// try (InputStream in =
+		// URI.create("https://rocky-dawn-70703.herokuapp.com/Novi2019M2Coords.pdf").toURL()
+		// .openStream()) {
+		// Files.copy(in, Paths.get("Novi2019M2Coords.pdf"));
+		//
+		// } catch (MalformedURLException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// } catch (IOException e) {
+		// // TODO Auto-generated catch block
+		//// e.printStackTrace();
+		// }
+
+		file = new File("src/main/resources/Novi2019M2Coords.pdf"); // Paths.get("Novi2019M2Coords.pdf").toFile();
+		FileUtils.copyInputStreamToFile(inputStream, file);
 
 		File toReturn = null;
 
