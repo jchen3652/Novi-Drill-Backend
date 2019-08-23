@@ -103,7 +103,7 @@ public class Main {
 		File file = null;
 
 		ClassLoader cl = this.getClass().getClassLoader();
-		InputStream inputStream = cl.getResourceAsStream("src/main/resources/Novi2019M2Coords.pdf");
+		InputStream inputStream = cl.getResourceAsStream("Novi2019M2Coords.pdf");
 
 		//
 		// try (InputStream in =
@@ -119,7 +119,8 @@ public class Main {
 		//// e.printStackTrace();
 		// }
 
-		file = new File("src/main/resources/Novi2019M2Coords.pdf"); // Paths.get("Novi2019M2Coords.pdf").toFile();
+		file = new File("Novi2019M2Coords.pdf"); // Paths.get("Novi2019M2Coords.pdf").toFile();
+		file.createNewFile();
 		FileUtils.copyInputStreamToFile(inputStream, file);
 
 		File toReturn = null;
