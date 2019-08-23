@@ -117,7 +117,7 @@ public class Main {
 //			 e.printStackTrace();
 		}
  
-		file = Paths.get("src/main/resources/Novi2019M2Coords.pdf").toFile();
+		file = Paths.get("/src/main/resources/Novi2019M2Coords.pdf").toFile();
 
 		File toReturn = null;
 
