@@ -97,12 +97,12 @@ public class Main {
 	@RequestMapping(value = "/getpdf", method = RequestMethod.GET)
 	public void generateReport(HttpServletResponse response) throws Exception {
 
-		File testFile = new File("test.xsd");
-		printPaths(testFile);
+//		File testFile = new File("test.xsd");
+//		printPaths(testFile);
 
-		File file = null;
+		File file = new File("./Novi2019M2Coords.pdf");
 
-		ClassLoader classLoader = getClass().getClassLoader();
+//		ClassLoader classLoader = getClass().getClassLoader();
 
 		//
 		// try (InputStream in =
@@ -118,8 +118,8 @@ public class Main {
 		//// e.printStackTrace();
 		// }
 
-		file = new File((classLoader.getResource("src/main/resources/Novi2019M2Coords.pdf").getFile())); // Paths.get("Novi2019M2Coords.pdf").toFile();
-		file.createNewFile();
+//		file = new File((classLoader.getResource("main/resources/Novi2019M2Coords.pdf").getFile())); // Paths.get("Novi2019M2Coords.pdf").toFile();
+//		file.createNewFile();
 
 		File toReturn = null;
 
