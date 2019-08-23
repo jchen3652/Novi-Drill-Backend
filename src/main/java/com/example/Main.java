@@ -127,7 +127,7 @@ public class Main {
 		card = new SetCard(file);
 		setCardText = card.toString();
 
-		String performer = "C1";
+		String performer = "F1";
 
 		System.out.println("Generation for " + performer + " is beginning");
 		System.out.println("Getting performer information");
