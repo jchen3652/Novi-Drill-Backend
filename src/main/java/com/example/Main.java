@@ -150,7 +150,7 @@ public class Main {
 
 				ImagePanel.createAndShowGui(dispDots);
 			} catch (Exception e) {
-
+				e.printStackTrace();
 			}
 			// ImageHandler.saveImage("Set" + dots.get(i).getSetNumber(),
 			// ImagePanel.getInstance());
