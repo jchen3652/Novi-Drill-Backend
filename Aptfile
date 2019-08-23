@@ -1,2 +1,4 @@
 libxtst6
 libxi6
+xvfb
+libxrender1
