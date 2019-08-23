@@ -107,7 +107,7 @@ public class Main {
 
 		try (InputStream in = URI.create("https://rocky-dawn-70703.herokuapp.com/Novi2019M2Coords.pdf").toURL()
 				.openStream()) {
-			Files.copy(in, Paths.get("src/main/resources/Novi2019M2Coords.pdf"));
+			Files.copy(in, Paths.get("Novi2019M2Coords.pdf"));
 
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
@@ -117,7 +117,7 @@ public class Main {
 //			 e.printStackTrace();
 		}
  
-		file = Paths.get("/src/main/resources/Novi2019M2Coords.pdf").toFile();
+		file = Paths.get("Novi2019M2Coords.pdf").toFile();
 
 		File toReturn = null;
 
