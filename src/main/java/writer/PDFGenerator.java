@@ -104,4 +104,10 @@ public class PDFGenerator {
 
 		return Paths.get(filename).toFile();
 	}
+
+	private static void printPaths(File file) throws IOException {
+		System.out.println("Absolute Path: " + file.getAbsolutePath());
+		System.out.println("Canonical Path: " + file.getCanonicalPath());
+		System.out.println("Path: " + file.getPath());
+	}
 }

@@ -100,6 +100,9 @@ public class Main {
 	@RequestMapping(value = "/getpdf", method = RequestMethod.GET)
 	public void generateReport(HttpServletResponse response) throws Exception {
 
+		File testFile = new File("test.xsd");
+		printPaths(testFile);
+
 		File file = null;
 
 		try (InputStream in = URI.create("https://rocky-dawn-70703.herokuapp.com/Novi2019M2Coords.pdf").toURL()
@@ -114,7 +117,6 @@ public class Main {
 			// e.printStackTrace();
 		}
 
-		
 		file = Paths.get("/Novi2019M2Coords.pdf").toFile();
 
 		File toReturn = null;
@@ -238,5 +240,11 @@ public class Main {
 	// }
 	// }
 	// }
+
+	private static void printPaths(File file) throws IOException {
+		System.out.println("Absolute Path: " + file.getAbsolutePath());
+		System.out.println("Canonical Path: " + file.getCanonicalPath());
+		System.out.println("Path: " + file.getPath());
+	}
 
 }
