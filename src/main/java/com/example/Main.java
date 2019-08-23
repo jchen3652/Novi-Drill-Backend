@@ -96,6 +96,7 @@ public class Main {
 
 	@RequestMapping(value = "/getpdf", method = RequestMethod.GET)
 	public void generateReport(HttpServletResponse response) throws Exception {
+		System.setProperty("java.awt.headless", "true");
 
 //		File testFile = new File("test.xsd");
 //		printPaths(testFile);
