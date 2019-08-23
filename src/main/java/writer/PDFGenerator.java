@@ -3,6 +3,7 @@ package writer;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -15,8 +16,10 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import interpreter.Dot;
 
 public class PDFGenerator {
+	static File outputFile = null;
 
-	public static void generatePDF(ArrayList<Dot> dots, String file, boolean open) throws IOException {
+	public static File generatePDF(ArrayList<Dot> dots, String file, boolean open) throws IOException {
+
 		String filename = file + ".pdf";
 		String title, dotInfo;
 
@@ -76,8 +79,8 @@ public class PDFGenerator {
 				contents.endText();
 
 				// Creating PDImageXObject object
-				PDImageXObject pdImage = PDImageXObject
-						.createFromFile("deploy/Set" + dots.get(i).getSetNumber() + ".png", doc);
+				PDImageXObject pdImage = PDImageXObject.createFromFileByContent(
+						Paths.get("deploy/Set" + dots.get(i).getSetNumber() + ".png").toFile(), doc);
 
 				// Drawing the image in the PDF document
 				contents.drawImage(pdImage, imageX, imageY);
@@ -88,28 +91,17 @@ public class PDFGenerator {
 			}
 
 			contents.close();
-			try {
-				if (filename.contains("Label: ")) {
-					filename = filename.replace("Label: ", "G");
-				}
-				doc.save(filename);
-			} catch (java.io.FileNotFoundException e) {
-				System.out.println("Could not update PDF because it is currently open");
-				System.out.println(
-						"In 5 seconds, this program will open your currently open PDF that you need to close, because you're a dumbass.");
+			if (filename.contains("Label: ")) {
+				filename = filename.replace("Label: ", "G");
 			}
 
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			doc.save(filename);
 
 		} finally {
 			doc.close();
+
 		}
-		if (open) {
-			Desktop.getDesktop().open(new File(filename));
-		}
+
+		return Paths.get(filename).toFile();
 	}
 }

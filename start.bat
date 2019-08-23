@@ -1,0 +1,1 @@
+mvn spring-boot:run -Drun.arguments=-Djava.awt.headless=true

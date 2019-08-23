@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -20,20 +21,20 @@ public class ImageHandler {
 		return bi;
 	}
 
-//	public static void saveImage(String name, JPanel panel) {
-////		File outputfile = new File(name);
-////		try {
-////			ImageIO.write(createImage(panel), "jpg", outputfile);
-////		} catch (IOException e) {
-////			// TODO Auto-generated catch block
-////			e.printStackTrace();
-////		}
-//		JFrame frame = new JFrame(name);
-//		frame.getContentPane().setLayout(new FlowLayout());
-//		frame.getContentPane().add(new JLabel(new ImageIcon(createImage(panel))));
-//		frame.pack();
-//		frame.setVisible(true);
-//	}
+	// public static void saveImage(String name, JPanel panel) {
+	//// File outputfile = new File(name);
+	//// try {
+	//// ImageIO.write(createImage(panel), "jpg", outputfile);
+	//// } catch (IOException e) {
+	//// // TODO Auto-generated catch block
+	//// e.printStackTrace();
+	//// }
+	// JFrame frame = new JFrame(name);
+	// frame.getContentPane().setLayout(new FlowLayout());
+	// frame.getContentPane().add(new JLabel(new ImageIcon(createImage(panel))));
+	// frame.pack();
+	// frame.setVisible(true);
+	// }
 
 	public static void saveImage(String name, JPanel component) {
 		BufferedImage image = new BufferedImage(component.getWidth(), component.getHeight(),
@@ -41,7 +42,7 @@ public class ImageHandler {
 		// paints into image's Graphics
 		component.paint(image.getGraphics());
 		try {
-			ImageIO.write(resize(image, 311, 171), "png", new File(name + ".png"));
+			ImageIO.write(resize(image, 311, 171), "png", Paths.get(name + ".png").toFile());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("error");

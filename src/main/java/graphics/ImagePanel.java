@@ -12,6 +12,7 @@ import java.awt.Stroke;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class ImagePanel extends JPanel {
 
 		Graphics2D g2 = (Graphics2D) g;
 		try {
-			Image bg = ImageIO.read(new File("field.png"));
+			Image bg = ImageIO.read(Paths.get("field.png").toFile());
 			g2.drawImage(bg, 0, 0, null);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -79,19 +80,20 @@ public class ImagePanel extends JPanel {
 		Stroke oldStroke = g2.getStroke();
 		g2.setColor(GRAPH_COLOR);
 		g2.setStroke(GRAPH_STROKE);
-//		countsLabel.setLocation((int) graphPoints.get(graphPoints.size() - 1)[0] + 3,
-//				(int) graphPoints.get(graphPoints.size() - 1)[1] - 17);
+		// countsLabel.setLocation((int) graphPoints.get(graphPoints.size() - 1)[0] + 3,
+		// (int) graphPoints.get(graphPoints.size() - 1)[1] - 17);
 		for (int i = 0; i < graphPoints.size() - 1; i++) {
 			double x1 = graphPoints.get(i)[0];
 			double y1 = graphPoints.get(i)[1];
 			double x2 = graphPoints.get(i + 1)[0];
 			double y2 = graphPoints.get(i + 1)[1];
 
-//			double yOffset = (y2 - y1) / 2;
-//			double xOffset = (x2 - x1) / 2;
-//
-//			countsLabel.setLocation((int) (graphPoints.get(graphPoints.size() - 1)[0] - xOffset),
-//					(int) (graphPoints.get(graphPoints.size() - 1)[1] - yOffset - 30));
+			// double yOffset = (y2 - y1) / 2;
+			// double xOffset = (x2 - x1) / 2;
+			//
+			// countsLabel.setLocation((int) (graphPoints.get(graphPoints.size() - 1)[0] -
+			// xOffset),
+			// (int) (graphPoints.get(graphPoints.size() - 1)[1] - yOffset - 30));
 			if (i == graphPoints.size() - 2) {
 				JLabel ptLbl = new JLabel(counts.get(i + 1).toString() + " counts");
 				Font f = new Font("Courier", Font.BOLD, 12);
@@ -116,14 +118,14 @@ public class ImagePanel extends JPanel {
 			g2.fillOval(x, y, ovalW, ovalH);
 		}
 
-//		setNumberLabel.setText(sets.get(sets.size() - 1));
-//		Font f = setNumberLabel.getFont();
-//		Font f = new Font("Courier", Font.BOLD, 12);
-//		countsLabel.setFont(f);
-//		countsLabel.setText(counts.get(counts.size() - 1).toString() + " Counts");
+		// setNumberLabel.setText(sets.get(sets.size() - 1));
+		// Font f = setNumberLabel.getFont();
+		// Font f = new Font("Courier", Font.BOLD, 12);
+		// countsLabel.setFont(f);
+		// countsLabel.setText(counts.get(counts.size() - 1).toString() + " Counts");
 
-//		this.add(setNumberLabel);
-//		this.add(countsLabel);
+		// this.add(setNumberLabel);
+		// this.add(countsLabel);
 
 	}
 
@@ -153,8 +155,8 @@ public class ImagePanel extends JPanel {
 			counts.add(i, dots.get(i).getCounts());
 			sets.add(i, dots.get(i).getSetNumber());
 		}
-//		points.add(new double[] { 0, 0 });
-//		points.add(new double[] { 160, 85.33333 });
+		// points.add(new double[] { 0, 0 });
+		// points.add(new double[] { 160, 85.33333 });
 		ImagePanel mainPanel = new ImagePanel(points, counts, sets);
 		setInstance(mainPanel);
 
@@ -163,11 +165,10 @@ public class ImagePanel extends JPanel {
 		frame.getContentPane().add(mainPanel);
 		frame.pack();
 		frame.setLocationByPlatform(true);
-//		frame.setVisible(true);
+		// frame.setVisible(true);
+
+		ImageHandler.saveImage("deploy\\Set" + dots.get(dots.size() - 1).getSetNumber(), mainPanel);
 		
-		
-		
-		ImageHandler.saveImage("deploy\\Set" + dots.get(dots.size()-1).getSetNumber(), mainPanel);
 	}
 
 }
