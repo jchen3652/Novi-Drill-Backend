@@ -100,7 +100,7 @@ public class Main {
 //		File testFile = new File("test.xsd");
 //		printPaths(testFile);
 
-		File file = new File("./Novi2019M2Coords.pdf");
+		File file = new File("./src/main/resources/Novi2019M2Coords.pdf");
 
 //		ClassLoader classLoader = getClass().getClassLoader();
 
