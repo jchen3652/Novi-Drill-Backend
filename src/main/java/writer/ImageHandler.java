@@ -42,7 +42,7 @@ public class ImageHandler {
 		// paints into image's Graphics
 		component.paint(image.getGraphics());
 		try {
-			ImageIO.write(resize(image, 311, 171), "png", Paths.get("//" + name + ".png").toFile());
+			ImageIO.write(resize(image, 311, 171), "png", Paths.get(name + ".png").toFile());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("error");

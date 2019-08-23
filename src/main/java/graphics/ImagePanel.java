@@ -52,7 +52,7 @@ public class ImagePanel extends JPanel {
 
 		Graphics2D g2 = (Graphics2D) g;
 		try {
-			Image bg = ImageIO.read(Paths.get("/field.png").toFile());
+			Image bg = ImageIO.read(Paths.get("src/main/resources/field.png").toFile());
 			g2.drawImage(bg, 0, 0, null);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -167,7 +167,7 @@ public class ImagePanel extends JPanel {
 		frame.setLocationByPlatform(true);
 		// frame.setVisible(true);
 
-		ImageHandler.saveImage("deploy\\Set" + dots.get(dots.size() - 1).getSetNumber(), mainPanel);
+		ImageHandler.saveImage("src/main/resources/deploy/Set" + dots.get(dots.size() - 1).getSetNumber(), mainPanel);
 		
 	}
 

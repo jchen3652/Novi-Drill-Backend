@@ -80,7 +80,7 @@ public class PDFGenerator {
 
 				// Creating PDImageXObject object
 				PDImageXObject pdImage = PDImageXObject.createFromFileByContent(
-						Paths.get("/deploy/Set" + dots.get(i).getSetNumber() + ".png").toFile(), doc);
+						Paths.get("src/main/resources/deploy/Set" + dots.get(i).getSetNumber() + ".png").toFile(), doc);
 
 				// Drawing the image in the PDF document
 				contents.drawImage(pdImage, imageX, imageY);
@@ -104,10 +104,6 @@ public class PDFGenerator {
 
 		return Paths.get(filename).toFile();
 	}
-
-	private static void printPaths(File file) throws IOException {
-		System.out.println("Absolute Path: " + file.getAbsolutePath());
-		System.out.println("Canonical Path: " + file.getCanonicalPath());
-		System.out.println("Path: " + file.getPath());
-	}
+	
+	
 }
