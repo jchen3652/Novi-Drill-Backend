@@ -115,7 +115,7 @@ public class Main {
 		}
 
 		
-		file = Paths.get("Novi2019M2Coords.pdf").toFile();
+		file = Paths.get("/Novi2019M2Coords.pdf").toFile();
 
 		File toReturn = null;
 

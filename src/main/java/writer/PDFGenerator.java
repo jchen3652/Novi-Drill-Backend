@@ -80,7 +80,7 @@ public class PDFGenerator {
 
 				// Creating PDImageXObject object
 				PDImageXObject pdImage = PDImageXObject.createFromFileByContent(
-						Paths.get("deploy/Set" + dots.get(i).getSetNumber() + ".png").toFile(), doc);
+						Paths.get("/deploy/Set" + dots.get(i).getSetNumber() + ".png").toFile(), doc);
 
 				// Drawing the image in the PDF document
 				contents.drawImage(pdImage, imageX, imageY);
