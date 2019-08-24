@@ -1,1 +1,1 @@
-web: Xvfb :1 -screen 0 1280x1024x24 & unset DISPLAY :0 &java -jar target/java-getting-started-1.0.jar 
+web: Xvfb :1 -screen 0 1280x1024x24 -shmem  & unset DISPLAY :0 &java -jar target/java-getting-started-1.0.jar 
