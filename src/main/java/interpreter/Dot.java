@@ -52,20 +52,19 @@ public class Dot {
 		return set + " " + counts + " " + side + " " + LRValue + " " + LRMod + " " + yardline + " " + FBValue + " "
 				+ FBMod + " " + hash;
 	}
-	
+
 	public String shortHand() {
-		return "Counts: " + counts + " Side " + side + " " + LRValue + " " + LRMod + " " + yardline + " " + FBValue + " "
-				+ FBMod + " " + hash;
-	}
-	
-	private String locationString() {
-		return side + " " + LRValue + " " + LRMod + " " + yardline + " " + FBValue + " "
-				+ FBMod + " " + hash;
+		return "Counts: " + counts + " Side " + side + " " + LRValue + " " + LRMod + " " + yardline + " " + FBValue
+				+ " " + FBMod + " " + hash;
 	}
 
-//	public boolean equals(Dot other) {
-//		return other.getXYCoords() == this.locationString();
-//	}
+	private String locationString() {
+		return side + " " + LRValue + " " + LRMod + " " + yardline + " " + FBValue + " " + FBMod + " " + hash;
+	}
+
+	// public boolean equals(Dot other) {
+	// return other.getXYCoords() == this.locationString();
+	// }
 
 	/**
 	 * Field position calculation
@@ -84,7 +83,7 @@ public class Dot {
 
 		return new double[] { 3600 / 22.5 - x, 1920 / 22.5 - y };
 	}
-	
+
 	/**
 	 * Returns just counts
 	 * 
@@ -93,8 +92,7 @@ public class Dot {
 	public int getCounts() {
 		return this.counts;
 	}
-	
-	
+
 	/**
 	 * Returns just the set number
 	 * 
@@ -103,8 +101,7 @@ public class Dot {
 	public String getSetNumber() {
 		return this.set;
 	}
- }
-
+}
 
 enum leftToRightModifier {
 	INSIDE(1), OUTSIDE(-1);

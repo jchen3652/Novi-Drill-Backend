@@ -96,14 +96,14 @@ public class Main {
 
 	@RequestMapping(value = "/getpdf", method = RequestMethod.GET)
 	public void generateReport(HttpServletResponse response) throws Exception {
-//		System.setProperty("java.awt.headless", "true");
+		// System.setProperty("java.awt.headless", "true");
 
-//		File testFile = new File("test.xsd");
-//		printPaths(testFile);
+		// File testFile = new File("test.xsd");
+		// printPaths(testFile);
 
 		File file = new File("/app/Novi2019M2Coords.pdf");
 
-//		ClassLoader classLoader = getClass().getClassLoader();
+		// ClassLoader classLoader = getClass().getClassLoader();
 
 		//
 		// try (InputStream in =
@@ -119,8 +119,10 @@ public class Main {
 		//// e.printStackTrace();
 		// }
 
-//		file = new File((classLoader.getResource("main/resources/Novi2019M2Coords.pdf").getFile())); // Paths.get("Novi2019M2Coords.pdf").toFile();
-//		file.createNewFile();
+		// file = new
+		// File((classLoader.getResource("main/resources/Novi2019M2Coords.pdf").getFile()));
+		// // Paths.get("Novi2019M2Coords.pdf").toFile();
+		// file.createNewFile();
 
 		File toReturn = null;
 
