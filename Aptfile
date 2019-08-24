@@ -15,3 +15,5 @@ xfonts-scalable
 xfonts-cyrillic 
 libxfont1 
 xvfb
+
+xkeyboard-config
