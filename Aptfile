@@ -4,3 +4,4 @@ xvfb
 libxrender1
 xorg
 openbox
+x11-xkb-utils 
