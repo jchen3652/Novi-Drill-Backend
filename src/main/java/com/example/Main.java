@@ -234,18 +234,6 @@ public class Main {
 		return baos.toByteArray();
 	}
 
-	// public static byte[] loadFile(String sourcePath) throws IOException {
-	// InputStream inputStream = null;
-	// try {
-	// inputStream = new FileInputStream(sourcePath);
-	// return readFully(inputStream);
-	// } finally {
-	// if (inputStream != null) {
-	// inputStream.close();
-	// }
-	// }
-	// }
-
 	private static void printPaths(File file) throws IOException {
 		System.out.println("Absolute Path: " + file.getAbsolutePath());
 		System.out.println("Canonical Path: " + file.getCanonicalPath());
