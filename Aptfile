@@ -1,5 +1,6 @@
 libxtst6
 libxi6
+libnotify4
 xvfb
 libxrender1
 xorg
