@@ -1,1 +1,1 @@
-web: pkill Xvfb & xvfb-run -n 119 -a java -jar target/java-getting-started-1.0.jar 
+web: java -jar target/java-getting-started-1.0.jar 
